@@ -1,52 +1,366 @@
-{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
+<div class="homepage">
+  <section id="main-slider" class="no-margin-padding">
+      <div class="carousel slide">
+          <ol class="carousel-indicators">
+              <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+              <li data-target="#main-slider" data-slide-to="1"></li>
+              <li data-target="#main-slider" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
 
-{{block header}}
-    <header class="container-fluid background">
-      <div class="jumbotron text-center">
-        {{if response.title:}}
-        <h1>{{=response.title}}
-          <small>{{=response.subtitle or ''}}</small></h1>
-        {{pass}}
+              <div class="item active" style="background-image: url('../static/images/bg1.jpg')">
+                  <div class="container">
+                      <div class="row slide-margin">
+                          <div class="col-sm-6">
+                              <div class="carousel-content">
+                                  <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
+                                  <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
+                                  <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div><!--/.item-->
+
+              <div class="item" style="background-image: url('../static/images/bg2.jpg')">
+                  <div class="container">
+                      <div class="row slide-margin">
+                          <div class="col-sm-6">
+                              <div class="carousel-content">
+                                  <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
+                                  <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
+                                  <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div><!--/.item-->
+
+              <div class="item" style="background-image: url('../static/images/bg3.jpg')">
+                  <div class="container">
+                      <div class="row slide-margin">
+                          <div class="col-sm-6">
+                              <div class="carousel-content">
+                                  <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
+                                  <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
+                                  <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div><!--/.item-->
+          </div><!--/.carousel-inner-->
+      </div><!--/.carousel-->
+      <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+          <i class="fa fa-chevron-left"></i>
+      </a>
+      <a class="next hidden-xs" href="#main-slider" data-slide="next">
+          <i class="fa fa-chevron-right"></i>
+      </a>
+  </section><!--/#main-slider-->
+
+  <section id="feature" >
+      <div class="container">
+         <div class="center wow fadeInDown">
+              <h2>Features</h2>
+              <p class="lead">Check out the unique features that cour compnay provide!</p>
+          </div>
+
+          <div class="row">
+              <div class="features">
+                  <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                      <div class="feature-wrap">
+                          <i class="fa fa-bullhorn"></i>
+                          <h2>Fresh and Clean</h2>
+                          <h3>Short and sweet resume.</h3>
+                      </div>
+                  </div><!--/.col-md-4-->
+
+                  <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                      <div class="feature-wrap">
+                          <i class="fa fa-cloud-download"></i>
+                          <h2>Easy to customize</h2>
+                          <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+                      </div>
+                  </div><!--/.col-md-4-->
+
+                  <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                      <div class="feature-wrap">
+                          <i class="fa fa-comments"></i>
+                          <h2>Fast Delivery</h2>
+                          <h3>We'll deliver your awesome resume within 3 working days.</h3>
+                      </div>
+                  </div><!--/.col-md-4-->
+              </div><!--/.services-->
+          </div><!--/.row-->    
+      </div><!--/.container-->
+  </section><!--/#feature-->
+
+  <section id="services" class="service-item">
+   <div class="container">
+          <div class="center wow fadeInDown">
+              <h2>Job Listings</h2>
+          </div>
+
+          <div class="row">
+
+              <div class="col-sm-6 col-md-4">
+                  <div class="media job-card services-wrap wow fadeInDown">
+                      <div class="overlay"></div>
+                      <div class="media-body">
+                          <h3 class="media-heading">ABC Company</h3>
+                          <p>$500 per month</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4">
+                  <div class="media job-card services-wrap wow fadeInDown">
+                      <div class="overlay"></div>
+                      <div class="media-body">
+                          <h3 class="media-heading">DEF Company</h3>
+                          <p>$400 per month</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4">
+                  <div class="media job-card services-wrap wow fadeInDown">
+                      <div class="overlay"></div>
+                      <div class="media-body">
+                          <h3 class="media-heading">GHI Company</h3>
+                          <p>$500 per month</p>
+                      </div>
+                  </div>
+              </div>  
+
+              <div class="col-sm-6 col-md-4">
+                  <div class="media job-card services-wrap wow fadeInDown">
+                      <div class="overlay"></div>
+                      <div class="media-body">
+                          <h3 class="media-heading">JKL Company</h3>
+                          <p>$200 per month</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4">
+                  <div class="media job-card services-wrap wow fadeInDown">
+                      <div class="overlay"></div>
+                      <div class="media-body">
+                          <h3 class="media-heading">MNO Company</h3>
+                          <p>$150 per month</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4">
+                  <div class="media job-card services-wrap wow fadeInDown">
+                      <div class="overlay"></div>
+                      <div class="media-body">
+                          <h3 class="media-heading">PQL Company</h3>
+                          <p>$175 per month</p>
+                      </div>
+                  </div>
+              </div>                                                
+          </div><!--/.row-->
+      </div><!--/.container-->
+  </section><!--/#services-->
+
+  <section class="pricing-page">
+      <div class="container">
+          <div class="center">  
+              <h2>Pricing Table</h2>
+              <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+          </div>  
+          <div class="pricing-area text-center">
+              <div class="row">
+                  <div class="col-sm-4 plan price-one wow fadeInDown">
+                      <ul>
+                          <li class="heading-one">
+                              <h1>Basic</h1>
+                              <span>$10</span>
+                          </li>
+                          <li>Standard Resume</li>
+                          <li>Non-customizable</li>
+                          <li>No Softcopy</li>
+                          <li class="plan-action">
+                              <a href="" class="btn btn-primary">Sign up</a>
+                          </li>
+                      </ul>
+                  </div>
+
+                  <div class="col-sm-4 plan price-two wow fadeInDown">
+                      <ul>
+                          <li class="heading-two">
+                              <h1>Standerd</h1>
+                              <span>$20</span>
+                          </li>
+                          <li>Standard Resume</li>
+                          <li>Customizable Resume</li>
+                          <li>Downloadable Soft-copy</li>
+                          <li>No Support</li>
+                          <li class="plan-action">
+                              <a href="" class="btn btn-primary">Sign up</a>
+                          </li>
+                      </ul>
+                  </div>
+
+                  <div class="col-sm-4 plan price-three wow fadeInDown">
+                      <img src="images/ribon_one.png">
+                      <ul>
+                          <li class="heading-three">
+                              <h1>Premium</h1>
+                              <span>$30</span>
+                          </li>
+                          <li>Standard Resume</li>
+                          <li>Customizable</li>
+                          <li>Downloadable Soft-copy</li>
+                          <li>Suport to amend according to your needs</li>
+                          <li class="plan-action">
+                              <a href="" class="btn btn-primary">Sign up</a>
+                          </li>
+                      </ul>
+                  </div>
+
+              </div>
+          </div><!--/pricing-area-->
+      </div><!--/container-->
+  </section><!--/pricing-page-->
+
+  <section id="middle">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12 wow fadeInDown">
+                  <div class="accordion">
+                      <h2>Why choose us?</h2>
+                      <div class="panel-group" id="accordion1">
+                        <div class="panel panel-default">
+                          <div class="panel-heading active">
+                            <h3 class="panel-title">
+                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1">
+                                Lorem ipsum dolor sit amet
+                                <i class="fa fa-angle-right pull-right"></i>
+                              </a>
+                            </h3>
+                          </div>
+
+                          <div id="collapseOne1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="media accordion-inner">
+                                      <div class="media-body">
+                                           <h4>Adipisicing elit</h4>
+                                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
+                                      </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h3 class="panel-title">
+                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1">
+                                Lorem ipsum dolor sit amet
+                                <i class="fa fa-angle-right pull-right"></i>
+                              </a>
+                            </h3>
+                          </div>
+                          <div id="collapseTwo1" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h3 class="panel-title">
+                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1">
+                                Lorem ipsum dolor sit amet
+                                <i class="fa fa-angle-right pull-right"></i>
+                              </a>
+                            </h3>
+                          </div>
+                          <div id="collapseThree1" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h3 class="panel-title">
+                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour1">
+                                Lorem ipsum dolor sit amet
+                                <i class="fa fa-angle-right pull-right"></i>
+                              </a>
+                            </h3>
+                          </div>
+                          <div id="collapseFour1" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+                            </div>
+                          </div>
+                        </div>
+                      </div><!--/#accordion1-->
+                  </div>
+              </div>
+
+          </div><!--/.row-->
+      </div><!--/.container-->
+  </section><!--/#middle-->
+
+  <section id="contact-info">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-8">
+                  <div class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                      <div class="pull-left">
+                          <i class="fa fa-phone"></i>
+                      </div>
+                      <div class="media-body">
+                          <h2>Have a question?</h2>
+                          <p>Call us at the direct line +0123 456 70 80</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div><!--/.container-->    
+  </section><!--/#conatcat-info-->
+
+  <section id="bottom">
+      <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+          <div class="row">
+              <div class="col-md-6 col-sm-6">
+                  <div class="widget">
+                      <h3>Company</h3>
+                      <ul>
+                          <li><a href="#">About us</a></li>
+                          <li><a href="#">Meet the team</a></li>
+                          <li><a href="#">Copyright</a></li>
+                          <li><a href="#">Terms of use</a></li>
+                          <li><a href="#">Privacy policy</a></li>
+                          <li><a href="#">Contact us</a></li>
+                      </ul>
+                  </div>    
+              </div><!--/.col-md-3-->
+
+              <div class="col-md-6 col-sm-6">
+                  <div class="widget">
+                      <h3>Support</h3>
+                      <ul>
+                          <li><a href="#">Faq</a></li>
+                          <li><a href="#">Blog</a></li>
+                          <li><a href="#">Forum</a></li>
+                          <li><a href="#">Billing system</a></li>
+                      </ul>
+                  </div>    
+              </div><!--/.col-md-3-->
+          </div>
       </div>
-    </header>
-{{end}}
-
-{{if 'message' in globals():}}
-<h2>{{=message}}</h2>
-<p class="lead">{{=T('How did you get here?')}}</p>
-<ol>
-  <li>{{=T('You are successfully running web2py')}}</li>
-  <li>{{=XML(T('You visited the url %s', A(request.env.path_info,_href=request.env.path_info)))}}</li>
-  <li>{{=XML(T('Which called the function %s located in the file %s',
-    (A(request.function+'()',_href='#'),
-    A('web2py/applications/%(application)s/controllers/%(controller)s.py' % request,
-    _href=URL('admin','default','peek', args=(request.application,'controllers',request.controller+'.py'))))))}}</li>
-  <li>{{=XML(T('The output of the file is a dictionary that was rendered by the view %s',
-    A('web2py/applications/%(application)s/views/%(controller)s/index.html' % request,
-    _href=URL('admin','default','peek',args=(request.application,'views',request.controller,'index.html')))))}}</li>
-  <li>{{=T('You can modify this application and adapt it to your needs')}}</li>
-</ol>
-{{elif 'content' in globals():}}
-{{=content}}
-{{else:}}
-{{=BEAUTIFY(response._vars)}}
-{{pass}}
-
-{{block right_sidebar}}
-<div class="panel panel-info">
-  <div class="panel-heading"><h3 class="panel-title"><a class="btn-block"
-      href="{{=URL('admin','default','index')}}">
-      <i class="glyphicon glyphicon-cog"></i>
-      {{=T("admin")}}
-    </a></h3></div>
-  <div class="panel-body">
-    {{=T("Don't know what to do?")}}
-  </div>
-  <ul class="list-group">
-    <li class="list-group-item">{{=A(T("Online examples"), _href=URL('examples','default','index'))}}</li>
-    <li class="list-group-item"><a href="http://web2py.com">web2py.com</a></li>
-    <li class="list-group-item"><a href="http://web2py.com/book">{{=T('Documentation')}}</a></li>
-  </ul>
+  </section><!--/#bottom-->
 </div>
-{{end}}
+
