@@ -7,6 +7,7 @@
 # - user is required for authentication and authorization
 # - download is for downloading files uploaded in the db (does streaming)
 # -------------------------------------------------------------------------
+
 def admin():
     check_requests = db(db.resume_info.request_status == 'pending').select().as_list()
     request_table = TABLE([TR(TD('User'), TD('Status'), TD('Action'))]
