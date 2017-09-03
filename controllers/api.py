@@ -15,8 +15,8 @@ def register():
   if request.vars.email:
     request.vars.password = db.auth_user.password.validate(request.vars.password.encode('utf8'))[0]
     register_user = db.auth_user.insert(**request.vars)
-    if query:
-      add_group = db.auth_group.insert(user_id=query.id, group_id=2)
+    if register_user:
+      add_group = db.auth_group.insert(user_id=register_user.id, group_id=2)
       return response.json(dict(success=True, data=URL('default', 'login')))
   return response.json(dict(success=False, data=URL('default', 'register')))
 
