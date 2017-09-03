@@ -119,13 +119,7 @@
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li><a href="{{=URL('default','job_listings')}}">Home</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{=URL('default','resume_writing')}}">Resume Writing</a></li>
-                                <li><a href="{{=URL('default','hr_solutions')}}">HR Solutions</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="{{=URL('default','request_resume')}}">Request Resume</a></li>
                         {{if auth.has_membership('admin'):}}
                         <li><a href="{{=URL('default','admin')}}">Admin</a></li>
                         {{pass}}

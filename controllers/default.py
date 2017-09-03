@@ -27,6 +27,9 @@ def contact_us():
 def resume_writing():
     return dict(message=T('Welcome'))
 
+def request_resume():
+  return dict(message=T('Welcome'))
+
 def job_listings():
     return dict(message=T('Welcome'))
 
