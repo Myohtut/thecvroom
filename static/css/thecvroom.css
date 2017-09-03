@@ -8,31 +8,6 @@ body, .no-margin-padding{
 #main-nav{
   background-color: transparent;
 }
-.job-card{
-  padding: 0px;
-  background: url('../images/hiring.jpg') no-repeat center;
-  background-size: cover;
-  color: white;
-}
-.job-card h3{
-  color: white;
-}
-.job-card > div{
-  padding: 30px;
-}
-.job-card > .media-body{
-  position: relative;
-  z-index: 1;
-}
-.overlay{
-  padding: 0px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.3);
-}
 /* Template Overwrite */
 .homepage > section {
   padding: 70px 0;
