@@ -27,12 +27,6 @@
     <link rel="stylesheet" href="{{=URL('static','css/font-awesome.min.css')}}"/>
     <link rel="stylesheet" href="{{=URL('static','css/prettyPhoto.css')}}"/>
     <link rel="stylesheet" href="{{=URL('static','css/responsive.css')}}"/>
-    <!-- Material Design CSS -->
-    <link rel="stylesheet" href="{{=URL('static','css/bootstrap-material-design.min.css')}}">
-    <link rel="stylesheet" href="{{=URL('static','css/ripples.min.css')}}">
-<!--      <link rel="stylesheet" href="{{=URL('static','css/bootstrap-material-datetimepicker.css')}}">
-    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <!-- Material Design CSS end -->
     <link rel="stylesheet" href="{{=URL('static','css/main.css')}}"/>
     <link rel="shortcut icon" href="{{=URL('static','images/favicon.ico')}}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{=URL('static','images/favicon.png')}}">
@@ -42,13 +36,9 @@
          HTML5 elements & feature detects -->
     <script src="{{=URL('static','js/modernizr-2.8.3.min.js')}}"></script>
     <!-- Third Party Vendodr JS -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
     <script src="{{=URL('static','js/jquery.js')}}"></script>
-<!--     <script src="{{=URL('static','js/bootstrap-material-datetimepicker.js')}}"></script> -->
     <script src="{{=URL('static','js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{=URL('static','js/jquery.isotope.min.js')}}"></script>
-
-    <!-- Material End -->
     <script src="{{=URL('static','js/main.js')}}"></script>
     <script src="{{=URL('static','js/wow.min.js')}}"></script>
     <!--[if lt IE 9]>
@@ -115,46 +105,23 @@
                       thecvroom
                     </a>
                 </div>
-                {{if auth.is_logged_in():}}
-                <div class="collapse navbar-collapse navbar-right">
-                    <ul class="nav navbar-nav">
-                        <li><a href="{{=URL('default','job_listings')}}">Home</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{=URL('default','resume_writing')}}">Resume Writing</a></li>
-                                <li><a href="{{=URL('default','hr_solutions')}}">HR Solutions</a></li>
-                            </ul>
-                        </li>
-                        {{if auth.has_membership('admin'):}}
-                        <li><a href="{{=URL('default','admin')}}">Admin</a></li>
-                        {{pass}}
-                        <li><a href="{{=URL('default', 'user', args=['logout'])}}">Logout</a></li>
-                    </ul>
-                </div>
-                {{else:}}
+        
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="{{=URL('default','job_listings')}}">Job Listings</a></li>
                         <li><a href="{{=URL('default','about_us')}}">About Us</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{=URL('default','resume_writing')}}">Resume Writing</a></li>
+                                <li><a href="{{=URL('default','job_listing')}}">Job Listing</a></li>
                                 <li><a href="{{=URL('default','hr_solutions')}}">HR Solutions</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{=URL('default','login')}}">Login</a></li>
-                                <li><a href="{{=URL('default','register')}}">Register</a></li>
-                            </ul>
-                        </li>                    
+                        <li><a href="{{=URL('default','blog')}}">Blog</a></li> 
+                        <li><a href="{{=URL('default','contact_us')}}">Contact</a></li>                        
                     </ul>
                 </div>
-                {{pass}}
             </div><!--/.container-->
         </nav><!--/nav-->
     
@@ -197,9 +164,6 @@
     </footer><!--/#footer-->
     <!-- The javascript =============================== -->
     <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
-    <!-- Material Design -->
-    <script src="{{=URL('static','js/material.min.js')}}"></script>
-    <script src="{{=URL('static','js/ripples.min.js')}}"></script>
     <!-- <script src="{{=URL('static','js/web2py-bootstrap3.js')}}"></script> -->
     {{block page_js}}{{end page_js}}
     {{if response.google_analytics_id:}}
@@ -211,10 +175,7 @@
       });
     </script>
     {{pass}}
-    <script>
-      $(document).ready(function(){
-        $.material.init();
-      })
-    </script>
+    <!-- Share ============================y============ -->
+    <script src="{{=URL('static','js/share.js',vars=dict(static=URL('static','images')))}}"></script>
   </body>
 </html>
