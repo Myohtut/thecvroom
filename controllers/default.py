@@ -7,7 +7,12 @@
 # - user is required for authentication and authorization
 # - download is for downloading files uploaded in the db (does streaming)
 # -------------------------------------------------------------------------
-
+def admin():
+    check_requests = db(db.resume_info.request_status == 'pending').select().as_list()
+    request_table = TABLE([TR(TD('User'), TD('Status'), TD('Action'))]
+      +
+      [TR([TD(data['user_id']), TD(data['request_status']), TD(BUTTON('Approve',_class='btn btn-raised btn-primary'))]) for data in check_requests],_class='table')
+    return dict(message=request_table)
 
 def index():
     return dict(message=T('Welcome to web2py!'))
@@ -21,13 +26,19 @@ def contact_us():
 def resume_writing():
     return dict(message=T('Welcome'))
 
-def job_listing():
+def job_listings():
     return dict(message=T('Welcome'))
 
 def hr_solutions():
     return dict(message=T('Welcome'))
 
 def blog():
+    return dict(message=T('Welcome'))
+
+def login():
+    return dict(message=T('Welcome'))
+
+def register():
     return dict(message=T('Welcome'))
 
 def user():

@@ -1,0 +1,52 @@
+{{extend 'layout.html'}}
+
+<style>
+section {
+  padding: 70px 0px;
+}
+#form-submit-button {
+  width: 100%;
+}
+</style>
+<section id="register-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <form action="#" id="register-form">
+          <h4>Register</h4>
+          <div class="form-group">
+            <label for="email" class="bmd-label-floating">First Name</label>
+            <input type="text" class="form-control" id="first-name">
+            <span class="bmd-help">First name</span>
+          </div>
+          <div class="form-group">
+            <label for="email" class="bmd-label-floating">Last Name</label>
+            <input type="text" class="form-control" id="last-name">
+            <span class="bmd-help">Last name</span>
+          </div>
+          <div class="form-group">
+            <label for="email" class="bmd-label-floating">Email address</label>
+            <input type="email" class="form-control" id="email">
+            <span class="bmd-help">Enter your email address</span>
+          </div>
+          <div class="form-group">
+            <label for="password" class="bmd-label-floating">Password</label>
+            <input type="password" class="form-control" id="password">
+            <span class="bmd-help">Enter your password</span>
+          </div>
+          <button class="btn btn-raised btn-primary" type="submit" id="form-submit-button">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script type="text/javascript">
+  $('#register-form').on('submit', function(event) {
+    event.preventDefault();
+    $.post("/thecvroom/api/register", { email: $('#email').val(), password: $('#password').val(), first_name: $('#first-name').val(), last_name: $('#last-name').val() }, function(json){
+      window.location = json.data
+    });
+  })
+</script>
