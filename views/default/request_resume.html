@@ -38,17 +38,17 @@ button {
             <small>All information provided will be kept confidential. We will not disclose your personal information to a third party without your consent.</small>
             <div class="form-group">
               <label for="email" class="bmd-label-floating">First Name</label>
-              <input type="text" class="form-control" id="first-name">
+              <input type="text" name="first_name" class="form-control" id="first-name">
               <span class="bmd-help">First name</span>
             </div>
             <div class="form-group">
               <label for="email" class="bmd-label-floating">Last Name</label>
-              <input type="text" class="form-control" id="last-name">
+              <input type="text" name="last_name" class="form-control" id="last-name">
               <span class="bmd-help">Last name</span>
             </div>
             <div class="form-group">
               <label for="email" class="bmd-label-floating">Email address</label>
-              <input type="email" class="form-control" id="email">
+              <input type="email" name="email" class="form-control" id="email">
               <span class="bmd-help">Enter your email address</span>
             </div>
             <div class="form-group">
@@ -68,25 +68,25 @@ button {
             </div>
             <div class="form-group">
               <label for="phone-number" class="bmd-label-floating">Phone Number</label>
-              <input type="text" class="form-control" id="phone-number">
+              <input type="text" name="contact_number" class="form-control" id="phone-number">
               <span class="bmd-help">Contact telephone number</span>
             </div>
             <div class="form-group">
               <label for="address" class="bmd-label-floating">Address</label>
-              <input type="text" class="form-control" id="address">
+              <input type="text" name="address" class="form-control" id="address">
               <span class="bmd-help">Current address</span>
             </div>
             <div class="form-group">
-              <label>LinkedIn Account</label>
+              <label for="lilnkedin">LinkedIn Account</label>
               <div class="radio">
                 <label>
-                  <input type="radio" name="linkedin" value="true">
+                  <input type="radio" name="linkedin" value="yes">
                   Yes
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input type="radio" name="linkedin" value="false">
+                  <input type="radio" name="linkedin" value="no">
                   No
                 </label>
               </div>
@@ -116,19 +116,19 @@ button {
               <label>Faith</label>
               <div class="radio">
                 <label>
-                  <input type="radio" name="faith" value="true">
+                  <input type="radio" name="faith" value="buddhist">
                   Buddhist
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input type="radio" name="faith" value="false">
+                  <input type="radio" name="faith" value="hinduism">
                   Hinduism
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input type="radio" name="faith" value="false">
+                  <input type="radio" name="faith" value="christian">
                   Christian
                 </label>
               </div>
@@ -137,13 +137,13 @@ button {
               <label>Driving Licence</label>
               <div class="radio">
                 <label>
-                  <input type="radio" name="driving_licence" value="true">
+                  <input type="radio" name="driving_licence" value="yes">
                   Yes
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input type="radio" name="driving_licence" value="false">
+                  <input type="radio" name="driving_licence" value="no">
                   No
                 </label>
               </div>
@@ -177,12 +177,12 @@ button {
           <div id="skills" class="hide">
             <div class="form-group">
               <label for="skills" class="bmd-label-floating">Technical Skills</label>
-              <input type="text" class="form-control" id="skills">
+              <input type="text" name="technical_skills" class="form-control" id="skills">
               <span class="bmd-help">List of technical skills seperated by commas</span>
             </div>
             <div class="form-group">
               <label for="language" class="bmd-label-floating">Language</label>
-              <textarea class="form-control" id="language"></textarea>
+              <textarea name="language_proficiency" class="form-control" id="language"></textarea>
               <span class="bmd-help">Language proficiency</span>
             </div>
             <button class="btn btn-raised btn-primary" type="submit">Submit</button>
@@ -248,6 +248,7 @@ function generateBusinessForm(target) {
                   html: 'Sector'
                 }), $('<select/>', {
                   class: 'form-control',
+                  name: 'sector[]',
                   id: businessSectorTarget,
                   html: $.map(sectorList, function(value, index){
                     return $('<option/>', {
@@ -263,6 +264,7 @@ function generateBusinessForm(target) {
               html: 'Position'
             }), $('<input/>', {
               class: 'form-control',
+              name: 'job_position[]',
               id: businessPositionTarget,
               html: $('<span/>', {
                 class: 'bmd-help',
@@ -277,6 +279,7 @@ function generateBusinessForm(target) {
               html: 'Department'
             }), $('<input/>', {
               class: 'form-control',
+              name: 'department[]',
               id: businessDepartmentTarget,
               html: $('<span/>', {
                 class: 'bmd-help',
@@ -290,6 +293,7 @@ function generateBusinessForm(target) {
               class: 'bmd-label-floating',
               html: 'Period From'
             }), $('<input/>', {
+              name: 'period_from[]',
               class: 'form-control',
               type: 'date',
               id: businessPeriodFromTarget,
@@ -301,6 +305,7 @@ function generateBusinessForm(target) {
               class: 'bmd-label-floating',
               html: 'Period To'
             }), $('<input/>', {
+              name: 'period_to[]',
               class: 'form-control',
               type: 'date',
               id: businessPeriodToTarget
@@ -308,12 +313,13 @@ function generateBusinessForm(target) {
           }),$('<div/>', {
             class: 'form-group',
             html: [$('<label/>', {
-              for: businessDepartmentTarget,
+              for: businessDescriptionTarget,
               class: 'bmd-label-floating',
               html: 'Responsibilities'
             }), $('<textarea/>', {
+              name: 'responsibilities[]',
               class: 'form-control',
-              id: businessDepartmentTarget,
+              id: businessDescriptionTarget,
               html: $('<span/>', {
                 class: 'bmd-help',
                 html: 'Briefly describe the responsibilities for the period'
@@ -327,7 +333,7 @@ function generateStudentForm(target) {
   window.studentRecordCount += 1;
   var studentCardNo = 'student-card-' + window.studentRecordCount,
       studentCourseTarget = 'student-course-' + window.studentRecordCount,
-      studentProjectTarget = 'student-project-' + window.studentProjectCount
+      studentProjectTarget = 'student-project-' + window.studentRecordCount
   target.prepend($('<div/>', {
     class: 'card form-card',
     id: studentCardNo,
@@ -344,6 +350,7 @@ function generateStudentForm(target) {
             html: 'Course Highlight'
           }), $('<textarea/>', {
             class: 'form-control',
+            name: 'course[]',
             id: studentCourseTarget,
             html: $('<span/>', {
               class: 'bmd-help',
@@ -358,6 +365,7 @@ function generateStudentForm(target) {
               html: 'Responsibilities'
             }), $('<textarea/>', {
               class: 'form-control',
+              name: 'project[]',
               id: studentProjectTarget,
               html: $('<span/>', {
                 class: 'bmd-help',
@@ -388,6 +396,7 @@ function generateDegreeForm(target) {
             html: 'Degree'
           }), $('<textarea/>', {
             class: 'form-control',
+            name: 'education_degree[]',
             id: degreeTarget,
             html: $('<span/>', {
               class: 'bmd-help',
@@ -415,9 +424,10 @@ function generateCertificateForm(target) {
           html: [$('<label/>', {
             for: certificateTarget,
             class: 'bmd-label-floating',
-            html: 'Degree'
+            html: 'Certificate'
           }), $('<textarea/>', {
             class: 'form-control',
+            name: 'certificate[]',
             id: certificateTarget,
             html: $('<span/>', {
               class: 'bmd-help',
@@ -445,9 +455,10 @@ function generateAwardForm(target) {
           html: [$('<label/>', {
             for: awardTarget,
             class: 'bmd-label-floating',
-            html: 'Degree'
+            html: 'Award'
           }), $('<textarea/>', {
             class: 'form-control',
+            name: 'award[]',
             id: awardTarget,
             html: $('<span/>', {
               class: 'bmd-help',
@@ -475,8 +486,9 @@ function generateVolunteerForm(target) {
           html: [$('<label/>', {
             for: volunteerTarget,
             class: 'bmd-label-floating',
-            html: 'Degree'
+            html: 'Volunteer Experience'
           }), $('<textarea/>', {
+            name: 'volunteer[]',
             class: 'form-control',
             id: volunteerTarget,
             html: $('<span/>', {
@@ -529,7 +541,16 @@ $(document).ready(function(){
     event.preventDefault();
     // clear all alert
     $('.alert').alert('close');
-    $.post("/thecvroom/api/handle_resume_request", { email: $('#email').val() }, function(json){
+    var formData = $('#resume-request-form').serialize();
+    // update the radio buttons
+    Object.assign(formData, {
+      gender: $('input[name=gender]').val(),
+      linkedin: $('input[name=linkedin]').val(),
+      marital_status: $('input[name=marital_status]').val(),
+      faith: $('input[name=faith]').val(),
+      driving_licence: $('input[name=driving_licence]').val()
+    })
+    $.post("/thecvroom/api/handle_resume_request/add", formData, function(json){
       if (json.success) {
         showAlert('Request submitted, you will be contacted within 3 working days!')
       } else {

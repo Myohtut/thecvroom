@@ -9,11 +9,34 @@
 # -------------------------------------------------------------------------
 
 def admin():
-    check_requests = db(db.resume_info.request_status == 'pending').select().as_list()
-    request_table = TABLE([TR(TD('User'), TD('Status'), TD('Action'))]
-      +
-      [TR([TD(data['user_id']), TD(data['request_status']), TD(BUTTON('Approve',_class='btn btn-raised btn-primary'))]) for data in check_requests],_class='table')
-    return dict(message=request_table)
+  check_requests = db((db.resume_info.request_status == 'pending')&(db.resume_info.user_id == db.auth_user.id)).select().as_list()
+  request_table = TABLE(
+    [TR(TD('User'), TD('Status'), TD('Action'))]
+    +
+    [TR([TD(data['auth_user']['first_name']),
+      TD(data['resume_info']['request_status']),
+      TD(BUTTON('View',
+        _class='btn btn-raised btn-primary',
+        _onclick="$('#modal .modal-body').html('%s')" % DIV(H6(T('Name')),
+          DIV('%s %s' % (data['auth_user']['first_name'], data['auth_user']['last_name'])),
+          H6(T('Email')),
+          DIV(data['auth_user']['email']),
+          DIV(H5(T('List of Degrees'))),
+          CAT([DIV(degree) for degree in eval(data['resume_info']['education_degree'])]) if data['resume_info']['education_degree'] and isinstance(eval(data['resume_info']['education_degree']), list) else data['resume_info']['education_degree'],
+          DIV(H5(T('List of Certificates'))),
+          CAT([DIV(certificate) for certificate in eval(data['resume_info']['certificate'])]) if data['resume_info']['certificate'] and isinstance(eval(data['resume_info']['certificate']), list) else data['resume_info']['certificate'],
+          DIV(H5(T('List of Awards'))),
+          CAT([DIV(award) for award in eval(data['resume_info']['award'])]) if data['resume_info']['award'] and isinstance(eval(data['resume_info']['award']), list) else data['resume_info']['award'],
+          DIV(H5(T('List of Volunteering Experience'))),
+          CAT([DIV(volunteer) for volunteer in eval(data['resume_info']['volunteer'])]) if data['resume_info']['volunteer'] and isinstance(eval(data['resume_info']['volunteer']), list) else data['resume_info']['volunteer'],
+          DIV(H5(T('Technical Skills'))),
+          DIV(data['resume_info']['technical_skills']),
+          DIV(H5(T('Language Proficiency'))),
+          DIV(data['resume_info']['language_proficiency'])),
+        **{'_data-toggle':'modal', '_data-target':'#modal'})
+      )]) for data in check_requests]
+    ,_class='table')
+  return dict(message=request_table)
 
 def index():
     return dict(message=T('Welcome to web2py!'))

@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.TypeError'> eval() arg 1 must be a string or code object"
+p3
+sS'layer'
+p4
+S'/Users/myo/Documents/Work/web2py/web2py/applications/thecvroom/controllers/default.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n# this file is released under public domain and you can use without limitations\n\n# -------------------------------------------------------------------------\n# This is a sample controller\n# - index is the default action of any application\n# - user is required for authentication and authorization\n# - download is for downloading files uploaded in the db (does streaming)\n# -------------------------------------------------------------------------\n\ndef admin():\n  check_requests = db((db.resume_info.request_status == \'pending\')&(db.resume_info.user_id == db.auth_user.id)).select().as_list()\n  request_table = TABLE(\n    [TR(TD(\'User\'), TD(\'Status\'), TD(\'Action\'))]\n    +\n    [TR([TD(data[\'auth_user\'][\'first_name\']),\n      TD(data[\'resume_info\'][\'request_status\']),\n      TD(BUTTON(\'View\',\n        _class=\'btn btn-raised btn-primary\',\n        _onclick="$(\'#modal .modal-body\').html(\'%s\')" % DIV(H6(T(\'Name\')),\n          DIV(\'%s %s\' % (data[\'auth_user\'][\'first_name\'], data[\'auth_user\'][\'last_name\'])),\n          H6(T(\'Email\')),\n          DIV(data[\'auth_user\'][\'email\']),\n          DIV(H5(T(\'List of Degrees\'))),\n          [DIV(degree) for degree in eval(data[\'resume_info\'][\'education_degree\'])] if isinstance(eval(data[\'resume_info\'][\'education_degree\']), list) else data[\'resume_info\'][\'education_degree\']),\n        **{\'_data-toggle\':\'modal\', \'_data-target\':\'#modal\'})\n      )]) for data in check_requests]\n    ,_class=\'table\')\n  return dict(message=request_table)\n\ndef index():\n    return dict(message=T(\'Welcome to web2py!\'))\n\ndef about_us():\n    return dict(message=T(\'Welcome\'))\n\ndef contact_us():\n    return dict(message=T(\'Welcome\'))\n\ndef resume_writing():\n    return dict(message=T(\'Welcome\'))\n\ndef request_resume():\n  return dict(message=T(\'Welcome\'))\n\ndef job_listings():\n    return dict(message=T(\'Welcome\'))\n\ndef hr_solutions():\n    return dict(message=T(\'Welcome\'))\n\ndef blog():\n    return dict(message=T(\'Welcome\'))\n\ndef login():\n    return dict(message=T(\'Welcome\'))\n\ndef register():\n    return dict(message=T(\'Welcome\'))\n\ndef user():\n    return dict(form=auth())\n\n\n@cache.action()\ndef download():\n    """\n    allows downloading of uploaded files\n    http://..../[app]/default/download/[filename]\n    """\n    return response.download(request, db)\n\n\ndef call():\n    """\n    exposes services. for example:\n    http://..../[app]/default/call/jsonrpc\n    decorate with @services.jsonrpc the functions to expose\n    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv\n    """\n    return service()\n\n\n\nresponse._vars=response._caller(admin)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/Users/myo/Documents/Work/web2py/web2py/gluon/restricted.py", line 220, in restricted\n    exec(ccode, environment)\n  File "/Users/myo/Documents/Work/web2py/web2py/applications/thecvroom/controllers/default.py", line 85, in <module>\n  File "/Users/myo/Documents/Work/web2py/web2py/gluon/globals.py", line 405, in <lambda>\n    self._caller = lambda f: f()\n  File "/Users/myo/Documents/Work/web2py/web2py/applications/thecvroom/controllers/default.py", line 27, in admin\n    )]) for data in check_requests]\nTypeError: eval() arg 1 must be a string or code object\n'
+p11
+s.

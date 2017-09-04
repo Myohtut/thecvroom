@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.SyntaxError'> Field last_name does not belong to the table"
+p3
+sS'layer'
+p4
+S'/Users/myo/Documents/Work/web2py/web2py/applications/thecvroom/controllers/api.py'
+p5
+sS'code'
+p6
+S"# To do list\n# return redirect link from the login and register\n\ndef get_listings():\n  return dict(listings=[])\n\ndef login():\n  if request.vars.email and request.vars.password:\n    check_logged_in = auth.login_bare(request.vars.email, request.vars.password.encode('utf8'))\n    if check_logged_in:\n      return response.json(dict(success=True, data=URL('default', 'job_listings')))\n  return response.json(dict(success=False, data=URL('default', 'login')))\n\ndef register():\n  if request.vars.email:\n    request.vars.password = db.auth_user.password.validate(request.vars.password.encode('utf8'))[0]\n    register_user = db.auth_user.insert(**request.vars)\n    if register_user:\n      add_group = db.auth_membership.insert(user_id=register_user.id, group_id=2)\n      return response.json(dict(success=True, data=URL('default', 'login')))\n  return response.json(dict(success=False, data=URL('default', 'register')))\n\ndef handle_resume_request():\n  print request.vars\n  if request.vars and 'add' in request.args:\n    request.vars.update(dict(user_id=auth.user_id, request_status='pending'))\n    form_data = {key.replace('[]','') if '[]' in key else key: val for key, val in request.vars.iteritems()}\n    send_request = db.resume_info.insert(**form_data)\n    if send_request:\n      return response.json(dict(success=True, data=send_request.id))\n  return response.json(dict(success=False, data='Erro adding'))\nresponse._vars=response._caller(handle_resume_request)\n"
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/Users/myo/Documents/Work/web2py/web2py/gluon/restricted.py", line 220, in restricted\n    exec(ccode, environment)\n  File "/Users/myo/Documents/Work/web2py/web2py/applications/thecvroom/controllers/api.py", line 32, in <module>\n  File "/Users/myo/Documents/Work/web2py/web2py/gluon/globals.py", line 405, in <lambda>\n    self._caller = lambda f: f()\n  File "/Users/myo/Documents/Work/web2py/web2py/applications/thecvroom/controllers/api.py", line 28, in handle_resume_request\n    send_request = db.resume_info.insert(**form_data)\n  File "/Users/myo/Documents/Work/web2py/web2py/gluon/packages/dal/pydal/objects.py", line 741, in insert\n    ret = self._db._adapter.insert(self, self._listify(fields))\n  File "/Users/myo/Documents/Work/web2py/web2py/gluon/packages/dal/pydal/objects.py", line 651, in _listify\n    \'Field %s does not belong to the table\' % name)\nSyntaxError: Field last_name does not belong to the table\n'
+p11
+s.

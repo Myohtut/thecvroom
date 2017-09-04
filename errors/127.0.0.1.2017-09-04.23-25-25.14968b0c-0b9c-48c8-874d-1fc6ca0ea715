@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.RuntimeError'> dictionary changed size during iteration"
+p3
+sS'layer'
+p4
+S'/Users/myo/Documents/Work/web2py/web2py/applications/thecvroom/controllers/api.py'
+p5
+sS'code'
+p6
+S"# To do list\n# return redirect link from the login and register\n\ndef get_listings():\n  return dict(listings=[])\n\ndef login():\n  if request.vars.email and request.vars.password:\n    check_logged_in = auth.login_bare(request.vars.email, request.vars.password.encode('utf8'))\n    if check_logged_in:\n      return response.json(dict(success=True, data=URL('default', 'job_listings')))\n  return response.json(dict(success=False, data=URL('default', 'login')))\n\ndef register():\n  if request.vars.email:\n    request.vars.password = db.auth_user.password.validate(request.vars.password.encode('utf8'))[0]\n    register_user = db.auth_user.insert(**request.vars)\n    if register_user:\n      add_group = db.auth_membership.insert(user_id=register_user.id, group_id=2)\n      return response.json(dict(success=True, data=URL('default', 'login')))\n  return response.json(dict(success=False, data=URL('default', 'register')))\n\ndef handle_resume_request():\n  print request.vars\n  if request.vars and 'add' in request.args:\n    request.vars.update(dict(user_id=auth.user_id, request_status='pending'))\n    for key, val in request.vars.iteritems():\n      if '[]' in key:\n        request.vars[key.replace('[]','')] = val\n    print request.vars\n    # send_request = db.resume_info.insert(user_id=auth.user_id, request_status='pending')\n    # if send_request:\n    #   return response.json(dict(success=True, data=send_request.id))\n  return response.json(dict(success=False, data='Erro adding'))\nresponse._vars=response._caller(handle_resume_request)\n"
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/Users/myo/Documents/Work/web2py/web2py/gluon/restricted.py", line 220, in restricted\n    exec(ccode, environment)\n  File "/Users/myo/Documents/Work/web2py/web2py/applications/thecvroom/controllers/api.py", line 35, in <module>\n  File "/Users/myo/Documents/Work/web2py/web2py/gluon/globals.py", line 405, in <lambda>\n    self._caller = lambda f: f()\n  File "/Users/myo/Documents/Work/web2py/web2py/applications/thecvroom/controllers/api.py", line 27, in handle_resume_request\n    for key, val in request.vars.iteritems():\nRuntimeError: dictionary changed size during iteration\n'
+p11
+s.

@@ -60,3 +60,118 @@ CREATE TABLE "resume_info"(
     "request_status" CHAR(512)
 );
 success!
+timestamp: 2017-09-04T23:15:22.130783
+ALTER TABLE "resume_info" ADD "sector" TEXT;
+timestamp: 2017-09-04T23:15:22.136271
+ALTER TABLE "resume_info" ADD "certificate" TEXT;
+timestamp: 2017-09-04T23:15:22.141472
+ALTER TABLE "resume_info" ADD "period_from" DATE;
+timestamp: 2017-09-04T23:15:22.153285
+ALTER TABLE "resume_info" ADD "period_to" DATE;
+timestamp: 2017-09-04T23:15:22.154943
+ALTER TABLE "resume_info" ADD "responsibilities" TEXT;
+timestamp: 2017-09-04T23:15:22.157530
+ALTER TABLE "resume_info" ADD "award" TEXT;
+timestamp: 2017-09-04T23:15:22.162939
+ALTER TABLE "resume_info" ADD "project" TEXT;
+timestamp: 2017-09-04T23:15:22.164607
+ALTER TABLE "resume_info" ADD "course" TEXT;
+timestamp: 2017-09-04T23:15:22.167887
+ALTER TABLE "resume_info" ADD "department" TEXT;
+timestamp: 2017-09-04T23:15:22.169709
+ALTER TABLE "resume_info" ADD "business_position" TEXT;
+timestamp: 2017-09-04T23:15:22.171115
+ALTER TABLE "resume_info" ADD "language_proficiency" TEXT;
+timestamp: 2017-09-04T23:15:22.172177
+ALTER TABLE "resume_info" ADD "technical_skills" TEXT;
+timestamp: 2017-09-04T23:15:22.173075
+ALTER TABLE "resume_info" ADD "education_degree" TEXT;
+timestamp: 2017-09-04T23:15:22.174064
+ALTER TABLE "resume_info" ADD "volunteer" TEXT;
+success!
+timestamp: 2017-09-04T23:18:00.286793
+ALTER TABLE "resume_info" ADD "job_position" TEXT;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
